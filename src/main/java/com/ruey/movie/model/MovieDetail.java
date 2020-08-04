@@ -1,4 +1,4 @@
-package com.ruey.movie.detail.model;
+package com.ruey.movie.model;
 
 public class MovieDetail {
 	private Integer id;

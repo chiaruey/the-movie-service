@@ -1,4 +1,4 @@
-package com.ruey.movie.credit.model;
+package com.ruey.movie.model;
 
 import java.util.List;
 

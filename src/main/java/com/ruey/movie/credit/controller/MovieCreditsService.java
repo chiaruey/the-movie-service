@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import com.ruey.movie.credit.model.MovieCredits;
+
+import com.ruey.movie.model.MovieCredits;
 
 import io.swagger.annotations.ApiOperation;
 

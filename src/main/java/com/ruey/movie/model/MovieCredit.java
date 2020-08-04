@@ -1,4 +1,4 @@
-package com.ruey.movie.credit.model;
+package com.ruey.movie.model;
 
 public class MovieCredit {
 

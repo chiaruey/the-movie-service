@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.ruey.movie.discover.model.MovieList;
+import com.ruey.movie.model.MovieList;
 
 import io.swagger.annotations.ApiOperation;
 

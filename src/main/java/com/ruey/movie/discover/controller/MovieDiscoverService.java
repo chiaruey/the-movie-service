@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -32,8 +33,8 @@ public class MovieDiscoverService {
 
 	@GetMapping("/popular")
 	@ApiOperation(value = "Popular movies", notes = "Return the most popular movies", response = MovieList.class)
-	public MovieList popular() {
-		String fullUrl = url + POPULAR_PATH + "&api_key=" + apiKey;
+	public MovieList popular(@RequestParam(defaultValue = "1") String page) {
+		String fullUrl = url + POPULAR_PATH + "&api_key=" + apiKey  + "&page=" + page;
 		logger.info("fullUrl = " + fullUrl);
 		MovieList movieList = restTemplate.getForObject(fullUrl, MovieList.class);
 		return movieList;

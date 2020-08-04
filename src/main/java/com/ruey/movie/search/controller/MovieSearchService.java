@@ -34,7 +34,7 @@ public class MovieSearchService {
 
 	@RequestMapping
 	@ApiOperation(value = "Search movies", notes = "Return the movies matching provided criteria", response = MovieList.class)
-	public MovieList searchMovie(@RequestParam("query") String query,@RequestParam("page") String page) {
+	public MovieList searchMovie(@RequestParam("query") String query,@RequestParam(defaultValue = "1") String page) {
 		String queryUrl = url + PATH + query + "&page=" + page + "&api_key=" + apiKey;
 		logger.debug("queryUrl = " + queryUrl);
 		MovieList movieList = restTemplate.getForObject(queryUrl, MovieList.class);

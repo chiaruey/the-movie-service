@@ -7,6 +7,9 @@ public class MovieCredit {
 	private String character;
 	private String credit_id;
 	private String gender;
+	private String name;
+	private int order;
+	private String profile_path;
 
 	public int getId() {
 		return id;
@@ -72,8 +75,5 @@ public class MovieCredit {
 		this.profile_path = profile_path;
 	}
 
-	private String name;
-	private int order;
-	private String profile_path;
 
 }

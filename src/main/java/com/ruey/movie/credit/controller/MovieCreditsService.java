@@ -36,10 +36,10 @@ public class MovieCreditsService {
     @GetMapping
 	@ApiOperation(value = "Movie Credits", notes = "Return the movie credits by movie id", response = MovieCredits.class)
     public MovieCredits getMovieById(@RequestParam("movieId") String movieId) {
-    	String queryUrl = url + PATH + movieId + "/credits?api_key=" +  apiKey;
-    	logger.debug("queryUrl = " + queryUrl);
-    	MovieCredits movieDetail = restTemplate.getForObject(queryUrl, MovieCredits.class);
-        return movieDetail;
+    	String movieCreditsUrl = url + PATH + movieId + "/credits?api_key=" +  apiKey;
+    	logger.debug("movieCreditsUrl = " + movieCreditsUrl);
+    	MovieCredits movieCredits = restTemplate.getForObject(movieCreditsUrl, MovieCredits.class);
+        return movieCredits;
     }
 
 

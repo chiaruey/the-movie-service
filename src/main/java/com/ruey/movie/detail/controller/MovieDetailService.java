@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.ruey.movie.model.MovieCredits;
 import com.ruey.movie.model.MovieDetail;
 
 import io.swagger.annotations.ApiOperation;
@@ -36,9 +37,15 @@ public class MovieDetailService {
     @GetMapping
 	@ApiOperation(value = "Movie Detail", notes = "Return the movie detail by movie id", response = MovieDetail.class)
     public MovieDetail getMovieById(@RequestParam("movieId") String movieId) {
-    	String queryUrl = url + PATH + movieId + "?api_key=" +  apiKey;
-    	logger.debug("queryUrl = " + queryUrl);
-    	MovieDetail movieDetail = restTemplate.getForObject(queryUrl, MovieDetail.class);
+    	String movieDetailUrl = url + PATH + movieId + "?api_key=" +  apiKey;
+    	logger.debug("queryUrl = " + movieDetailUrl);
+    	MovieDetail movieDetail = restTemplate.getForObject(movieDetailUrl, MovieDetail.class);
+    	
+    	String movieCreditsUrl = url + PATH + movieId + "/credits?api_key=" +  apiKey;
+    	logger.debug("movieCreditsUrl = " + movieCreditsUrl);
+    	MovieCredits movieCredits = restTemplate.getForObject(movieCreditsUrl, MovieCredits.class);
+    	
+    	movieDetail.setCast(movieCredits.getCast());
         return movieDetail;
     }
 
